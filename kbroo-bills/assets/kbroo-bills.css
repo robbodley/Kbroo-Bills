@@ -1,9 +1,12 @@
-.kb-wrap {
+:root {
 	--kb-pos: #1a7f37;
 	--kb-neg: #b42318;
 	--kb-muted: #646970;
 	--kb-border: #dcdcde;
 	--kb-card: #fff;
+}
+
+.kb-wrap {
 	max-width: 1200px;
 }
 
@@ -46,9 +49,10 @@
 .kb-table { border-collapse: collapse; width: 100%; }
 .kb-table th, .kb-table td { padding: 6px 10px; vertical-align: top; border-bottom: 1px solid var(--kb-border); text-align: left; }
 .kb-table .num { text-align: right; white-space: nowrap; }
-.kb-pos { color: var(--kb-pos); }
-.kb-neg, li.kb-neg { color: var(--kb-neg); }
-.kb-muted { color: var(--kb-muted); }
+/* Table cells are qualified so they win over the WordPress admin table colours. */
+.kb-pos, .kb-table td.kb-pos, .kb-table th.kb-pos { color: var(--kb-pos); }
+.kb-neg, li.kb-neg, .kb-table td.kb-neg, .kb-table th.kb-neg { color: var(--kb-neg); }
+.kb-muted, .kb-table td.kb-muted, .kb-table .kb-muted { color: var(--kb-muted); }
 .kb-inactive td { opacity: 0.55; }
 .kb-actions { white-space: nowrap; text-align: right; }
 .kb-delete { color: var(--kb-neg); }
@@ -70,6 +74,19 @@
 }
 .kb-form-box .form-table th { width: 130px; padding: 10px 10px 10px 0; }
 .kb-form-box .form-table td { padding: 8px 0; }
+
+.kb-login {
+	max-width: 360px;
+	background: var(--kb-card);
+	border: 1px solid var(--kb-border);
+	border-radius: 4px;
+	padding: 4px 20px 12px;
+}
+.kb-login label { display: block; margin-bottom: 4px; }
+.kb-login input[type="text"],
+.kb-login input[type="password"] { width: 100%; box-sizing: border-box; padding: 6px 8px; }
+.kb-login .login-remember label { display: inline; }
+.kb-login-status { font-size: 0.95em; }
 
 @media (max-width: 960px) {
 	.kb-two-col { grid-template-columns: 1fr; }

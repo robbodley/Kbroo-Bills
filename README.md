@@ -39,8 +39,26 @@ zip -r kbroo-bills.zip kbroo-bills
 When the forecast drifts away from what your bank shows, go to **Settings**,
 set the start date to today and the start balance to your real balance.
 
-To see the dashboard on the front of the site, put the shortcode `[kbroo_bills]` on a
-private page. Only logged-in administrators can see it.
+## Viewing it on the website
+
+Put the shortcode `[kbroo_bills]` on a page. Visitors who aren't logged in see a
+login form, and once logged in they see the dashboard (view only).
+
+Who can see it:
+
+- **Administrators** can always see it, and are the only ones who can change anything.
+- **Kbroo Bills Viewer** is a role added by the plugin. Create a user with
+  **Users → Add New** and pick this role. They can log in and view the page, but can't
+  get into the Kbroo Bills admin screens or edit anything, and don't see the admin bar.
+
+There's also a separate `[kbroo_bills_login]` shortcode if you want a login box
+somewhere else, for example in a sidebar or on another page. When logged in it shows
+"Logged in as …" with a log out link. Add `redirect` to send people to the accounts page
+after logging in:
+
+```
+[kbroo_bills_login redirect="https://example.com/accounts/"]
+```
 
 ## Tests
 

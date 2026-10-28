@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Kbroo_Bills_DB {
 
-	const DB_VERSION   = '1';
+	const DB_VERSION   = '2';
 	const SETTINGS_KEY = 'kbroo_bills_settings';
 
 	public static function items_table() {
@@ -56,7 +56,27 @@ class Kbroo_Bills_DB {
 		);
 
 		add_option( self::SETTINGS_KEY, self::default_settings() );
+		self::add_roles();
 		update_option( 'kbroo_bills_db_version', self::DB_VERSION );
+	}
+
+	/**
+	 * A low-level role that can log in and view the [kbroo_bills] page but
+	 * cannot change anything.
+	 */
+	public static function add_roles() {
+		add_role(
+			Kbroo_Bills_Shortcode::VIEWER_ROLE,
+			__( 'Kbroo Bills Viewer', 'kbroo-bills' ),
+			array(
+				'read'                          => true,
+				Kbroo_Bills_Shortcode::VIEW_CAP => true,
+			)
+		);
+		$admin = get_role( 'administrator' );
+		if ( $admin ) {
+			$admin->add_cap( Kbroo_Bills_Shortcode::VIEW_CAP );
+		}
 	}
 
 	public static function maybe_upgrade() {

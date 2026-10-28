@@ -95,7 +95,7 @@ class Kbroo_Bills_Admin {
 				</div>
 			<?php endif; ?>
 			<?php echo Kbroo_Bills_Dashboard::render(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside. ?>
-			<p class="kb-muted"><?php esc_html_e( 'Tip: add the shortcode [kbroo_bills] to a private page to see this dashboard on the front of your site (admins only).', 'kbroo-bills' ); ?></p>
+			<p class="kb-muted"><?php esc_html_e( 'Tip: add the shortcode [kbroo_bills] to a page to see this dashboard on the front of your site. Visitors who are not logged in get a login form. Give someone the Kbroo Bills Viewer role to let them view it without changing anything.', 'kbroo-bills' ); ?></p>
 		</div>
 		<?php
 	}
@@ -358,7 +358,7 @@ class Kbroo_Bills_Admin {
 								<tr>
 									<td><?php echo esc_html( date_i18n( 'j M Y', strtotime( $row['entry_date'] ) ) ); ?></td>
 									<td><?php echo esc_html( $row['description'] ); ?></td>
-									<td class="num <?php echo (float) $row['amount'] < 0 ? '' : 'kb-pos'; ?>"><?php echo esc_html( Kbroo_Bills_Dashboard::money( $row['amount'], true ) ); ?></td>
+									<td class="num <?php echo (float) $row['amount'] < 0 ? 'kb-neg' : 'kb-pos'; ?>"><?php echo esc_html( Kbroo_Bills_Dashboard::money( $row['amount'], true ) ); ?></td>
 									<td class="kb-actions">
 										<a href="<?php echo esc_url( admin_url( 'admin.php?page=kbroo-bills-oneoffs&edit=' . $row['id'] ) ); ?>"><?php esc_html_e( 'Edit', 'kbroo-bills' ); ?></a>
 										|
