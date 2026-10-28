@@ -1,0 +1,76 @@
+.kb-wrap {
+	--kb-pos: #1a7f37;
+	--kb-neg: #b42318;
+	--kb-muted: #646970;
+	--kb-border: #dcdcde;
+	--kb-card: #fff;
+	max-width: 1200px;
+}
+
+.kb-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 12px;
+	margin: 16px 0;
+}
+
+.kb-card {
+	background: var(--kb-card);
+	border: 1px solid var(--kb-border);
+	border-left: 4px solid #2271b1;
+	border-radius: 4px;
+	padding: 12px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.kb-card.kb-pos { border-left-color: var(--kb-pos); }
+.kb-card.kb-neg { border-left-color: var(--kb-neg); }
+.kb-card strong { font-size: 1.6em; line-height: 1.2; }
+.kb-card.kb-neg strong { color: var(--kb-neg); }
+.kb-card-label { color: var(--kb-muted); font-size: 0.9em; }
+.kb-card small { color: var(--kb-muted); }
+
+.kb-advice {
+	background: #f6f7f7;
+	border: 1px solid var(--kb-border);
+	border-radius: 4px;
+	padding: 4px 16px;
+	margin-bottom: 16px;
+}
+.kb-advice ul { list-style: disc; padding-left: 20px; }
+.kb-advice li { margin: 6px 0; }
+
+.kb-scroll { overflow-x: auto; }
+.kb-table { border-collapse: collapse; width: 100%; }
+.kb-table th, .kb-table td { padding: 6px 10px; vertical-align: top; border-bottom: 1px solid var(--kb-border); text-align: left; }
+.kb-table .num { text-align: right; white-space: nowrap; }
+.kb-pos { color: var(--kb-pos); }
+.kb-neg, li.kb-neg { color: var(--kb-neg); }
+.kb-muted { color: var(--kb-muted); }
+.kb-inactive td { opacity: 0.55; }
+.kb-actions { white-space: nowrap; text-align: right; }
+.kb-delete { color: var(--kb-neg); }
+
+.kb-details { margin: 16px 0; }
+.kb-details summary { cursor: pointer; font-weight: 600; padding: 8px 0; }
+.kb-foot { margin-top: 16px; font-size: 0.9em; }
+
+.kb-two-col {
+	display: grid;
+	grid-template-columns: minmax(300px, 420px) 1fr;
+	gap: 20px;
+	align-items: start;
+}
+.kb-form-box {
+	background: #fff;
+	border: 1px solid var(--kb-border);
+	padding: 0 16px;
+}
+.kb-form-box .form-table th { width: 130px; padding: 10px 10px 10px 0; }
+.kb-form-box .form-table td { padding: 8px 0; }
+
+@media (max-width: 960px) {
+	.kb-two-col { grid-template-columns: 1fr; }
+}
