@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Kbroo Bills
  * Description:       Track client subscriptions paid through Stripe, monthly and yearly bills, and forecast your business bank balance for the year.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            Kbroo
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'KBROO_BILLS_VERSION', '1.0.0' );
+define( 'KBROO_BILLS_VERSION', '1.0.1' );
 define( 'KBROO_BILLS_FILE', __FILE__ );
 define( 'KBROO_BILLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'KBROO_BILLS_URL', plugin_dir_url( __FILE__ ) );
