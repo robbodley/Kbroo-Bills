@@ -170,13 +170,13 @@ class Kbroo_Bills_Dashboard {
 						<?php foreach ( $fc['months'] as $m ) : ?>
 							<tr>
 								<td><?php echo esc_html( $m['label'] ); ?></td>
-								<td class="num"><?php echo esc_html( self::money( $m['opening'] ) ); ?></td>
+								<td class="num <?php echo $m['opening'] < 0 ? 'kb-neg' : ''; ?>"><?php echo esc_html( self::money( $m['opening'] ) ); ?></td>
 								<td class="num"><?php echo esc_html( self::money( $m['income'] ) ); ?></td>
 								<td class="num kb-muted"><?php echo esc_html( self::money( $m['fees'] ) ); ?></td>
 								<td class="num"><?php echo esc_html( self::money( $m['bills'] ) ); ?></td>
 								<td class="num"><?php echo esc_html( self::money( $m['oneoffs'], true ) ); ?></td>
 								<td class="num <?php echo esc_attr( self::tone( $m['net'] ) ); ?>"><?php echo esc_html( self::money( $m['net'], true ) ); ?></td>
-								<td class="num"><strong><?php echo esc_html( self::money( $m['closing'] ) ); ?></strong></td>
+								<td class="num <?php echo $m['closing'] < 0 ? 'kb-neg' : ''; ?>"><strong><?php echo esc_html( self::money( $m['closing'] ) ); ?></strong></td>
 								<td class="num <?php echo $m['lowest'] < 0 ? 'kb-neg' : ''; ?>"><?php echo esc_html( self::money( $m['lowest'] ) ); ?></td>
 							</tr>
 						<?php endforeach; ?>
