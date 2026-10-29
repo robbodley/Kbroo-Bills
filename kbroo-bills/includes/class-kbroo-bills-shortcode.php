@@ -37,7 +37,24 @@ class Kbroo_Bills_Shortcode {
 				. '<p><a href="' . esc_url( wp_logout_url( get_permalink() ) ) . '">' . esc_html__( 'Log out', 'kbroo-bills' ) . '</a></p></div>';
 		}
 		self::enqueue();
-		return Kbroo_Bills_Dashboard::render();
+		return self::top_bar() . Kbroo_Bills_Dashboard::render();
+	}
+
+	/**
+	 * "Logged in as …" with a log out button, shown above the dashboard.
+	 */
+	private static function top_bar() {
+		$user = wp_get_current_user();
+		return '<div class="kb-wrap kb-topbar">'
+			. '<span>'
+			. sprintf(
+				/* translators: %s: user display name */
+				esc_html__( 'Logged in as %s', 'kbroo-bills' ),
+				'<strong>' . esc_html( $user->display_name ) . '</strong>'
+			)
+			. '</span>'
+			. '<a class="kb-button" href="' . esc_url( wp_logout_url( get_permalink() ) ) . '">' . esc_html__( 'Log out', 'kbroo-bills' ) . '</a>'
+			. '</div>';
 	}
 
 	public static function render_login( $atts = array() ) {

@@ -88,6 +88,32 @@
 .kb-login .login-remember label { display: inline; }
 .kb-login-status { font-size: 0.95em; }
 
+.kb-topbar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+.kb-button,
+.kb-button:visited {
+	display: inline-block;
+	padding: 6px 14px;
+	border: 1px solid #2271b1;
+	border-radius: 4px;
+	background: #2271b1;
+	color: #fff;
+	text-decoration: none;
+	line-height: 1.4;
+}
+.kb-button:hover,
+.kb-button:focus {
+	background: #135e96;
+	border-color: #135e96;
+	color: #fff;
+}
+
 @media (max-width: 960px) {
 	.kb-two-col { grid-template-columns: 1fr; }
 }
